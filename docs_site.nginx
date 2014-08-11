@@ -13,7 +13,7 @@
 		location ~ /platform(.min)?.js.map{
 			rewrite ^/platform(.min)?.js.map /components/platform/platform.js.map break;		
 		}
-		location ~ /polymer(\.min)?.(js|html){
+		location ~ ^/polymer(\.min)?.(js|html){
 			rewrite ^/polymer(\.min)?.(js|html) /components/polymer/polymer.($2) break;		
 		}
 		location ~  /polymer-body.html {
@@ -41,6 +41,10 @@
 		}
 		location ~ /components(.*)$ {
             index  index.html index.htm;		
+			#autoindex on;
+		}
+		location ~ /_site(.*)$ {
+            index  index.html index.htm;	
 			#autoindex on;
 		}
 		location ~ /_site(.*)$ {
